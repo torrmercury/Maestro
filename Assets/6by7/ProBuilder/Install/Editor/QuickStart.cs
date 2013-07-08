@@ -6,9 +6,6 @@ using UnityEditor;
 using System.Linq;
 using System.Reflection;
 
-/**
- *	\brief 
- */
 public class QuickStart : EditorWindow
 {
 	[MenuItem("Window/ProBuilder/Quick Start")]
@@ -41,8 +38,7 @@ public class QuickStart : EditorWindow
 			TextureImporter tempImporter = TextureImporter.GetAtPath( AssetDatabase.GetAssetPath( (Texture2D)img) ) as TextureImporter;
 			tempImporter.isReadable = true;
 			tempImporter.textureType = TextureImporterType.GUI;
-			if(img != null)
-				AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath((Texture2D)img), ImportAssetOptions.ForceUpdate);
+			AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath((Texture2D)img), ImportAssetOptions.ForceUpdate);
 		}
 	}    
 
@@ -50,7 +46,7 @@ public class QuickStart : EditorWindow
 	int curVersion = 0;
 	int step = -2;
 	bool agreeToRead = false;
-	int UP_OR_INSTALL_BUTTON_HEIGHT = 60;
+	int UP_OR_INSTALL_BUTTON_HEIGHT = 100;
 	public void OnGUI()
 	{
 		// GUI.Label(new Rect(Screen.width-60, 2, 58, 24), Screen.width + ", " + Screen.height);
@@ -58,27 +54,15 @@ public class QuickStart : EditorWindow
 		switch(step)
 		{
 			case -2:
-				Heading(new Vector2(410, 320), "ProBuilder Quick Start", "");
+				Heading(new Vector2(410, 262), "ProBuilder Quick Start", "");
 
-				if(GUILayout.Button(new GUIContent("Fresh Install", "Select this is option if this is the first time you have installed ProBuilder in this project."), GUILayout.MinHeight(UP_OR_INSTALL_BUTTON_HEIGHT)))
+				if(GUILayout.Button(new GUIContent("Fresh Install", "Select this is this is the first time you have installed ProBuilder in this project."), GUILayout.MinHeight(UP_OR_INSTALL_BUTTON_HEIGHT)))
 				{
 					LoadLatestPack();
 					this.Close();
 				}
 
-				if(GUILayout.Button(new GUIContent("Upgrade Existing 2.x Version", "Select this option if you are upgrading from a 2.0 release (r538)."), GUILayout.MinHeight(UP_OR_INSTALL_BUTTON_HEIGHT)))
-				{
-					LoadLatestPack();
-					this.Close();
-				}
-
-				if(GUILayout.Button(new GUIContent("Upgrade from Free Version 2.x", "Select this option if you are upgrading from a 2.0 release (r538) Free version.."), GUILayout.MinHeight(UP_OR_INSTALL_BUTTON_HEIGHT)))
-				{
-					LoadLatestPack();
-					this.Close();
-				}
-
-				if(GUILayout.Button(new GUIContent("Upgrade from 1.x or 2.x Beta Version", "Select this if you have an already existing ProBuilder project built in 1.x or a beta version of 2.0 that you would like to upgrade."), GUILayout.MinHeight(UP_OR_INSTALL_BUTTON_HEIGHT)))
+				if(GUILayout.Button(new GUIContent("Upgrade Existing", "Select this if you have an already existing ProBuilder project that you would like to upgrade."), GUILayout.MinHeight(UP_OR_INSTALL_BUTTON_HEIGHT)))
 					step = -1;
 				break;
 
