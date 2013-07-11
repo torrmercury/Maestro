@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class quitButton : MonoBehaviour {
+public class startButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +14,8 @@ public class quitButton : MonoBehaviour {
 	}
 	
 	void OnMouseUpAsButton(){
-		Debug.Log ("Player Clicked on the Quit Button");
-		Application.Quit ();		
+		Debug.Log ("Player Clicked on the Start Button");
+		Application.LoadLevel("Test Scene");		
 	}
 	
 }
