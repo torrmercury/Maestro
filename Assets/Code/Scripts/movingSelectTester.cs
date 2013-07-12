@@ -4,6 +4,9 @@ using System.Collections;
 public class movingSelectTester : MonoBehaviour {
 //    int speed = 10;
 //    float moveChar = 0.0f;
+	
+	public Transform note;
+	
 	// Use this for initialization
 	void Start () {
         
@@ -26,7 +29,15 @@ public class movingSelectTester : MonoBehaviour {
 		
 		if (Input.GetKeyDown (KeyCode.Space)){
 			Debug.Log ("Space was Pressed");
-			//transform.position += new Vector3(0f, 10f, 0f);
+			
+			Instantiate(note, gameObject.transform.position + new Vector3(25f,0f,0f), Quaternion.identity);
+			
+			//note = new GameObject("T"); //prefab or set in workspace?
+			//var meshFilter = gameObject.AddComponent<MeshFilter>();
+			//gameObject.AddComponent<MeshRenderer>();
+			//meshFilter.sharedMesh = objectToCreate;
+			//note.transform.position = gameObject.transform.position + new Vector3(25f, 0f, 0f);
+			//gameObject.transform.rotation = transform.rotation;
 			
 			
 		}
