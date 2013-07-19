@@ -8,6 +8,7 @@ public class movingSelectTester : MonoBehaviour {
 	public Transform note; //Assigned in inspector
 	public Transform startpoint; //Assigned in inspector
 	public Transform endpoint; //Assigned in inspector
+	float startX;
 	
 	float tempo = 10; //tempo tells the testSelector how quickly it should move forward
 	
@@ -68,7 +69,19 @@ public class movingSelectTester : MonoBehaviour {
 			
 		}
 		
+		if (Input.GetKeyDown(KeyCode.L)){
+			Debug.Log ("L pressed");
+			resetLoop ();	
+		}
 		
 		
+		
+	}
+	
+	public void resetLoop(){
+		Debug.Log("resetLoop Called");
+		float startX = startpoint.position.x;
+		transform.position = new Vector3(startX, transform.position.y,transform.position.z);	
+//		transform.position = new Vector3(0f,-20f,0f);
 	}
 }
