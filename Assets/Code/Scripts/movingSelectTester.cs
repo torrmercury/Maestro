@@ -82,18 +82,18 @@ public class movingSelectTester : MonoBehaviour {
 			
 		}
 		
-<<<<<<< HEAD
+// HEAD
 		if (Input.GetKeyDown(KeyCode.L)){
 			Debug.Log ("L pressed");
 			resetLoop ();	
 		}
 		
-=======
+
 		if (transform.position.x >= 250f){
 			transform.position = new Vector3(0f, transform.position.y, 100f);
 			
 			
->>>>>>> Changed minor stuff
+// Changed minor stuff
 		
 		}
 		
